@@ -7,31 +7,16 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                snDevOpsStep()
-                snDevOpsPackage(name: "package", artifactsPayload: """{"artifacts": [{"name": "globex-web.war", "repositoryName": "Repo1", "version": "${artifactVersion}"}]}""")
+                sh 'echo Setup step'
+                // snDevOpsStep()
+                // snDevOpsPackage(name: "package", artifactsPayload: """{"artifacts": [{"name": "globex-web.war", "repositoryName": "Repo1", "version": "${artifactVersion}"}]}""")
             }
         }
         stage('Prod') {
             steps {
-                snDevOpsStep()
-                snDevOpsChange()
-                script {                
-                    sshPublisher(continueOnError: false, failOnError: true,
-                    publishers: [
-                        sshPublisherDesc(
-                            configName:'CorpSite PROD',
-                            verbose: true,
-                            transfers: [
-                                sshTransfer(
-                                    sourceFiles: 'target/globex-web.war',
-                                    removePrefix: 'target/',
-                                    remoteDirectory: '/opt/tomcat/webapps'
-                                )
-                            ]
-                        )
-                    ])
-                }
-            }
+                // snDevOpsStep()
+                // snDevOpsChange()
+                sh 'curl -u tomcat:tomcat --location --request PUT \'http://tomcat:8080/manager/text/deploy?path=/globex&war=globex-web.war&update=true\' --header \'Content-Type: application/java-archive\' --data-binary \'@target/globex-web.war\''
         }
     }
 }
