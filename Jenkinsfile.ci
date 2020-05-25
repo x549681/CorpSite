@@ -38,6 +38,7 @@ pipeline {
 
         stage('Publish') {
             steps {
+                sh 'echo publish stage'
                 //snDevOpsStep()
                 //snDevOpsArtifact(artifactsPayload:"""{"artifacts": [{"name": "globex-web.war","version":"2.${env.BUILD_NUMBER}.0","semanticVersion": "2.${env.BUILD_NUMBER}.0","repositoryName": "Repo1"}]}""")
             }
