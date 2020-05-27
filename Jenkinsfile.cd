@@ -17,7 +17,6 @@ pipeline {
                 sh 'echo Prod setup'
                 // snDevOpsStep()
                 // snDevOpsChange()
-                //sh 'curl -u tomcat:tomcat --location --request PUT \'http://tomcat:8080/manager/text/deploy?path=/globex&war=globex-web.war&update=true\' --header \'Content-Type: application/java-archive\' --data-binary \'@target/globex-web.war\''
             }
         }
     }
