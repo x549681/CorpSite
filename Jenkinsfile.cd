@@ -8,15 +8,15 @@ pipeline {
         stage('Setup') {
             steps {
                 sh 'echo Setup step'
-                // snDevOpsStep()
-                // snDevOpsPackage(name: "package", artifactsPayload: """{"artifacts": [{"name": "globex-web.war", "repositoryName": "Repo1", "version": "${artifactVersion}"}]}""")
+                snDevOpsStep()
+                snDevOpsPackage(name: "package", artifactsPayload: """{"artifacts": [{"name": "globex-web.war", "repositoryName": "Repo1", "version": "${artifactVersion}"}]}""")
             }
         }
         stage('Prod') {
             steps {
                 sh 'echo Prod setup'
-                // snDevOpsStep()
-                // snDevOpsChange()
+                snDevOpsStep()
+                snDevOpsChange()
             }
         }
     }
