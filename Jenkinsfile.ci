@@ -41,6 +41,10 @@ pipeline {
         }
 
         stage('Publish') {
+            environment {
+              TOMCAT = credentials('tomcat_user')
+            }
+            
             steps {
                 sh 'echo publish stage'
                 snDevOpsStep()
