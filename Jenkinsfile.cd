@@ -8,15 +8,20 @@ pipeline {
         stage('Setup') {
             steps {
                 sh 'echo Setup step'
-                snDevOpsStep()
+                //snDevOpsStep()
                 snDevOpsPackage(name: "package", artifactsPayload: """{"artifacts": [{"name": "globex-web.war", "repositoryName": "Repo1", "version": "${artifactVersion}"}]}""")
             }
         }
         stage('Prod') {
+            environment {
+              TOMCAT = credentials('tomcat_user')
+            }
+            
             steps {
                 sh 'echo Prod setup'
-                snDevOpsStep()
-                snDevOpsChange()
+                //snDevOpsStep()
+                //snDevOpsChange()
+                sh 'curl -u $TOMCAT_USR:$TOMCAT_PSW --location --request PUT \'http://tomcat:8080/manager/text/deploy?path=/globex&war=globex-web.war&update=true\' --header \'Content-Type: application/java-archive\' --data-binary \'@target/globex-web.war\''
             }
         }
     }
