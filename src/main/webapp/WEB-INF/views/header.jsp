@@ -52,9 +52,6 @@
                                         <li>
                                             <a href="#">Secret Mountain</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Hyderabad</a>
-                                        </li>
                                     </ul>
                                 </li>
                             </ul>
