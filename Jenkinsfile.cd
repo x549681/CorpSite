@@ -27,6 +27,7 @@ pipeline {
             steps {
                 sh "echo Deploying GlobEx version: ${params.artifactVersion}"
                 //snDevOpsChange()
+                snDevopsChange()
                 sh 'curl -u $TOMCAT_USR:$TOMCAT_PSW --location --request PUT \'http://tomcat:8080/manager/text/deploy?path=/globex&war=globex-web.war&update=true\' --header \'Content-Type: application/java-archive\' --data-binary \'@globex-web.war\''
             }
         }
