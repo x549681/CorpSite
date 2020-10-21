@@ -52,9 +52,6 @@
                                         <li>
                                             <a href="#">Secret Mountain</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Petaluma</a>
-                                        </li>
                                     </ul>
                                 </li>
                             </ul>
