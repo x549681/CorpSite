@@ -52,9 +52,6 @@
                                         <li>
                                             <a href="#">Secret Mountain</a>
                                         </li>
-                                        <li>
-                                            <a href="#">San Francisco</a>
-                                        </li>
                                     </ul>
                                 </li>
                             </ul>
